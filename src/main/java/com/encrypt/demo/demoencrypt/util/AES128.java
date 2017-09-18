@@ -38,8 +38,6 @@ public class AES128 {
     }
 
     public static String encrypt(String data) throws IOException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException, InvalidKeySpecException {
-        byte[] saltBytes = SALT.getBytes("UTF-8");
-        byte[] IVBytes = IV.getBytes("UTF-8");
 
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(Cipher.ENCRYPT_MODE, getSecretKey(PASSWORD, DatatypeConverter.parseHexBinary(SALT)), new IvParameterSpec(DatatypeConverter.parseHexBinary(IV)));
