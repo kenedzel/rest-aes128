@@ -21,7 +21,7 @@ public class EncryptController {
 
     @RequestMapping(value = "/encrypt", params = {"data"}, method = RequestMethod.GET)
     public ResponseEntity<Response> encrypt(@RequestParam("data") String data) throws NoSuchPaddingException, NoSuchAlgorithmException, IOException, BadPaddingException, IllegalBlockSizeException, InvalidKeyException, InvalidAlgorithmParameterException, InvalidKeySpecException {
-        Response response = new Response();
+        final Response response = new Response();
         response.setData(AES128.encrypt(data));
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

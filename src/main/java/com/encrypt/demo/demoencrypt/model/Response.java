@@ -1,5 +1,6 @@
 package com.encrypt.demo.demoencrypt.model;
 
+
 public class Response {
 
     private String data;
@@ -17,5 +18,20 @@ public class Response {
         return "Response{" +
                 "data='" + data + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Response)) return false;
+
+        Response response = (Response) o;
+
+        return data.equals(response.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return data.hashCode();
     }
 }
